@@ -1,5 +1,9 @@
 # MovieDbExplorer
 
+Los siguientes mensajes fueron generados por GitHub automaticamente, sin embargo, el desarrollo fue realziado con angular 20, y haciendo uso de inyecccion de depencias, comunicacion con apis utilizando hhtp client con interceptors.
+Para correr el proyecto en su computador local debe tener instalado angular CLI 20.3.5 y nodejs versiones superiores a 20.
+Para el desarrollo se trato de no utilizar librerias externas como angular material, tailwind, tansnack, entre otros.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.5.
 
 ## Development server
