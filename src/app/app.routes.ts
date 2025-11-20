@@ -12,7 +12,7 @@ export const routes: Routes = [
     },
     {
         path: 'home/movie/:id',
-        component: MovieDetailComponent
+        component: MovieDetailComponent,
     },
     {
         path: 'home/favorites',
