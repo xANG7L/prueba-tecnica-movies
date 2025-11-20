@@ -1,0 +1,90 @@
+.movie-detail-container {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    color: var(--white-90);
+  }
+  
+  .header {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .poster {
+    width: 300px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  }
+  
+  .info {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+  
+  .tagline {
+    font-style: italic;
+    opacity: 0.7;
+    margin-bottom: 15px;
+  }
+  
+  .overview {
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .meta p {
+    margin: 4px 0;
+  }
+  
+  .genres {
+    margin-top: 10px;
+    
+  }
+  
+  .genre {
+    background: var(--secondary);
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin: 0 6px;
+    font-size: 0.85rem;
+  }
+  
+  .homepage {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 14px;
+    background: var(--principal);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+  
+  .companies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .company {
+    text-align: center;
+    width: 120px;
+  }
+  
+  .company img {
+    width: 100%;
+    background: white;
+    border-radius: 6px;
+    padding: 6px;
+  }
+  
+  .extra h2{
+    margin: 1rem 0;
+  }

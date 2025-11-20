@@ -1,0 +1,21 @@
+<div class="home-header">
+    <h1 class="home-title">Películas Relevantes</h1>
+
+    <div class="search-container">
+        <input-debounce (onDebouce)="searchMovies($event)" />
+    </div>
+</div>
+
+<hr class="divider" />
+@if(movies().length > 0){
+    <div class="movies-grid">
+        @for (item of movies(); track $index) {
+        <card-movie [movie]="item" (toogleFavoriteMovie)="toogleFvorite(item)" />
+        }
+    </div>
+    <div class="pagination">
+        <button (click)="changePagination(-1)" [disabled]="currentPage() == 1">Anterior</button>
+        <span>Página {{ currentPage() }}</span>
+        <button (click)="changePagination(1)" [disabled]="!hasMorePages()">Siguiente</button>
+    </div>
+}

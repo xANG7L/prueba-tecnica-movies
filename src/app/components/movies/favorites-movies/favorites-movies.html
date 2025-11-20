@@ -1,0 +1,15 @@
+<div class="home-header">
+    <h1 class="home-title">Lista de favoritos</h1>
+
+</div>
+
+<hr class="divider" />
+@if(favoritesMovies().length > 0){
+    <div class="movies-grid">
+        @for (item of favoritesMovies(); track $index) {
+        <card-movie [movie]="item" (toogleFavoriteMovie)="toogleFvorite(item)" />
+        }
+    </div>
+}@else {
+    <div>No ha marcado peliculas favoritas</div>
+}

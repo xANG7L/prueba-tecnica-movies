@@ -1,0 +1,17 @@
+<div class="movie-card">
+  <img [src]=getImageUrl() alt="movie poster" />
+
+  <div class="movie-info">
+    <h2 class="title">{{ movie().title }}</h2>
+    <p class="year">Fecha de lanzamiento: {{ movie().release_date | date : 'dd/MM/yyyy'}}</p>
+    <p class="rating">Rating: {{ movie().vote_average }}</p>
+  </div>
+  <div class="movie-actions">
+    <button (click)="verMovie(movie().id)" class="btn details">Ver detalles</button>
+    <!-- <button class="btn favorite">Favorito</button> -->
+    <button class="fav-icon" (click)="toggleFavorite(movie())">
+      <i class="fa" [ngClass]="movie().isFavorite ? 'fa-solid fa-heart active' : 'fa-regular fa-heart'"></i>
+    </button>
+    
+  </div>
+</div>
