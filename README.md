@@ -2,7 +2,7 @@
 
 Los siguientes mensajes fueron generados por GitHub automaticamente, sin embargo, el desarrollo fue realizado con angular 20, y haciendo uso de inyecccion de depencias, comunicacion con apis utilizando http client con interceptors.
 Para correr el proyecto en su computador local debe tener instalado angular CLI 20.3.5 y nodejs versiones superiores a 20.
-Para el desarrollo se trato no se hizo el uso de librerias externas como angular material, tailwind, tansnack, entre otros.
+Para el desarrollo no se hizo el uso de librerias externas como angular material, tailwind, tansnack, entre otros.
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.5.
 
