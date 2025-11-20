@@ -3,37 +3,22 @@ import { MovieService } from '../../services/movie.service';
 import { CardMovieComponent } from '../../components/movies/card-movie/card-movie.component';
 import { InputDebounce } from '../../components/custom/input-debounce/input-debounce';
 import { Movie } from '../../models/movie';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from '../../shared/navbar/navbar.component';
+import { FooterComponent } from '../../shared/footer/footer.component';
 
 @Component({
   selector: 'app-home.component',
   imports: [
-    CardMovieComponent,
-    InputDebounce
+    RouterOutlet,
+    NavbarComponent,
+    FooterComponent
 ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent{
 
-  service = inject(MovieService);
-  movies = this.service.movies;
-  currentPage = this.service.currentPage;
-  hasMorePages = this.service.hasMorePages;
-
-  searchMovies(value:string){
-    if (value) {
-      this.service.searchMovie(value.trim())
-    } else {
-      this.service.getMovies();
-    }
-  }
-
-  changePagination(value: number){
-    this.service.changePage(value);
-  }
-
-  toogleFvorite(movie: Movie){
-    this.service.toggleFavorite(movie);
-  }
+ 
 
 }
