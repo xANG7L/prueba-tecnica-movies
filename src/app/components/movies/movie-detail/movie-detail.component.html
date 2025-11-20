@@ -1,61 +1,77 @@
 <div class="movie-detail-container">
-    @if (movieResource.hasValue()) {
-        <div class="header">
-          <img class="poster" [src]="'https://image.tmdb.org/t/p/w500' + movieResource.value().poster_path" alt="Poster" />
-      
-          <div class="info">
-            <h1 class="title">{{ movieResource.value().title }}</h1>
-            @if (movieResource.value().tagline) {
-                <p class="tagline">{{ movieResource.value().tagline }}</p>
-            }
-      
-            <p class="overview">
-              {{ movieResource.value().overview }}
-            </p>
-      
-            <div class="meta">
-              <p><strong>Fecha de lanzamiento:</strong> {{ movieResource.value().release_date }}</p>
-              <p><strong>Duración:</strong> {{ movieResource.value().runtime }} min</p>
-              <p><strong>Rating:</strong> ⭐ {{ movieResource.value().vote_average }} ({{ movieResource.value().vote_count }} votos)</p>
-            </div>
-      
-            <div class="genres">
-              <strong>Géneros:</strong>
-              @for (g of movieResource.value().genres; track $index) {
-                  <span class="genre">{{ g.name }}</span>
-              }
-            </div>
-      
-            @if (movieResource.value().homepage) {
-                <a class="homepage" [href]="movieResource.value().homepage" target="_blank">
-                  Página oficial
-                </a>
-            }
-          </div>
-        </div>
-      
-        <div class="extra">
-          <h2>Producción</h2>
-          <div class="companies">
-            @for (c of movieResource.value().production_companies; track $index) {
-                <div class="company">
-                    @if (c.logo_path) {
-                        <img [src]="'https://image.tmdb.org/t/p/w200' + c.logo_path" 
-                             alt="{{ c.name }}" />
-                    }
-                  <p>{{ c.name }}</p>
-                </div>
-            }
-          </div>
-      
-          <h2>Lenguajes</h2>
-          @for (lang of movieResource.value().spoken_languages; track $index) {
-              <p>
-                {{ lang.english_name }} ({{ lang.name }})
-              </p>
-          }
-      
-        </div>
-    }
+  <button class="back-btn" [routerLink]="['/home']">
+    <i class="fa-solid fa-arrow-left"></i>
+    Regresar
+  </button>
+  @if (movieResource.isLoading()) {
+    <div class="loading-container">
+      <div class="loading-spinner"></div>
+      <p>Cargando película...</p>
+    </div>
+  }
+  @if (movieResource.hasValue()) {
+  <div class="header">
+    <img class="poster" [src]="'https://image.tmdb.org/t/p/w500' + movieResource.value().poster_path" alt="Poster" />
+
+    <div class="info">
+      <h1 class="title">{{ movieResource.value().title }}</h1>
+      @if (movieResource.value().tagline) {
+      <p class="tagline">{{ movieResource.value().tagline }}</p>
+      }
+
+      <p class="overview">
+        {{ movieResource.value().overview }}
+      </p>
+
+      <div class="meta">
+        <p><strong>Fecha de lanzamiento:</strong> {{ movieResource.value().release_date }}</p>
+        <p><strong>Duración:</strong> {{ movieResource.value().runtime }} min</p>
+        <p><strong>Rating:</strong> ⭐ {{ movieResource.value().vote_average }} ({{ movieResource.value().vote_count }}
+          votos)</p>
+      </div>
+
+      <div class="genres">
+        <strong>Géneros:</strong>
+        @for (g of movieResource.value().genres; track $index) {
+        <span class="genre">{{ g.name }}</span>
+        }
+      </div>
+
+      @if (movieResource.value().homepage) {
+      <a class="homepage" [href]="movieResource.value().homepage" target="_blank">
+        Página oficial
+      </a>
+      }
+    </div>
   </div>
+
+  <div class="extra">
+    <h2>Producción</h2>
+    <div class="companies">
+      @for (c of movieResource.value().production_companies; track $index) {
+      <div class="company">
+        @if (c.logo_path) {
+        <img [src]="'https://image.tmdb.org/t/p/w200' + c.logo_path" alt="{{ c.name }}" />
+        }
+        <p>{{ c.name }}</p>
+      </div>
+      }
+    </div>
+
+    <h2>Lenguajes</h2>
+    @for (lang of movieResource.value().spoken_languages; track $index) {
+    <p>
+      {{ lang.english_name }} ({{ lang.name }})
+    </p>
+    }
+
+  </div>
+  }
+  @if (movieResource.error()) {
+    <div class="error-container">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      Error al cargar la película, intentelo mas tarde.
+    </div>
   
+  }
+</div>
